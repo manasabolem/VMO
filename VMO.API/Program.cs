@@ -1,7 +1,10 @@
 using VMO.API.Services.Interfaces;
 using VMO.API.Services;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
+
+Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
 
 // Add services to the container.
 // Register the SalesService for Dependency Injection

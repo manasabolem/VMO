@@ -28,15 +28,15 @@ namespace VMO.API.Services
                 Delimiter = ",",
                 HasHeaderRecord = true,
                 PrepareHeaderForMatch = args => args.Header.Trim(),
-                 HeaderValidated = null
+                HeaderValidated = null,
+                IgnoreBlankLines = true
             };
 
-            using (var reader = new StreamReader(filePath, Encoding.UTF8)) 
+            using (var reader = new StreamReader(filePath, Encoding.GetEncoding("Windows-1252")))
             using (var csv = new CsvReader(reader, config))
             {
                 csv.Context.RegisterClassMap<SalesDataMap>();
                 var records = csv.GetRecords<SalesData>().ToList();
-
                 return records;
             }
         }
