@@ -1,0 +1,39 @@
+﻿@model List<SalesDataViewModel>
+
+@{
+    ViewData["Title"] = "Sales Data";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Segment</th>
+                <th>Country</th>
+                <th>Product</th>
+                <th>Discount Band</th>
+                <th>Units Sold</th>
+                <th>Manufacturing Price</th>
+                <th>Sale Price</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Segment</td>
+                    <td>@item.Country</td>
+                    <td>@item.Product</td>
+                    <td>@item.DiscountBand</td>
+                    <td>@item.UnitsSold</td>
+                    <td>@item.ManufacturingPrice</td>
+                    <td>@item.SalePrice</td>
+                    <td>@item.Date.ToString("MM/dd/yyyy")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
